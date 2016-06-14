@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>three.js glTF Loader</title>
+        <title>three.js based glTF Loader for Geodata (PoC)</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <style>
@@ -19,7 +19,6 @@
                 z-index: 100;
                 display:block;
             }
-
             #container {
             	position: absolute;
             	top: 0px;
@@ -27,7 +26,6 @@
             	height:100%;
             	z-index: -1;
             }
-
             #rendercontainer {
             	position: absolute;
             	top: 0px;
@@ -36,7 +34,6 @@
             	z-index: -1;
             	background-color:Red;
             }
-
             #controls {
             	position:absolute;
             	width:25%;
@@ -47,7 +44,6 @@
             	opacity:.75;
             	font: 13px/1.231 "Lucida Grande", Lucida, Verdana, sans-serif;
             }
-
             #status {
             	position:absolute;
             	width:25%;
@@ -57,58 +53,48 @@
             	opacity:.9;
             	font: 13px/1.231 "Lucida Grande", Lucida, Verdana, sans-serif;
             }
-
             .control {
             	position:absolute;
             	margin-left:12px;
             	width:100%;
             	font-weight:bold;
             }
-
             .controlValue {
             	position:absolute;
             	left:40%;
             	top:0%;
             }
-
             #scenes_control {
             	position:absolute;
             	top:8px;
             }
-
             #cameras_control {
             	position:absolute;
             	top:40px;
             }
-
             #animations_control {
             	position:absolute;
             	top:72px;
             }
-
             #buffer_geometry_control {
             	position:absolute;
             	top:104px;
             }
-
             #materials_extension_control {
                 position:absolute;
                 top:136px;
             }
-
-
             #uris_control {
                 position:absolute;
                 top:166px;
             }
-
             #info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
         </style>
     </head>
 
     <body>
         <div id="info">
-        <a href="http://github.com/mrdoob/three.js" target="_blank">three.js</a> - glTF Loader
+        <a href="http://github.com/mrdoob/three.js" target="_blank">three.js</a> - <a href="https://github.com/KhronosGroup/glTF" target="_blank">glTF Loader</a> for tiled geodata (proof of concept)
         </div>
 		<div id="container">
 		</div>
@@ -397,17 +383,7 @@
 
 			var sceneList =
 				[
-	                 { name : "Duck", url : "../../sampleModels/Duck/%s/Duck.gltf",
-		                 cameraPos: new THREE.Vector3(0, 3, 5),
-		                 addLights:true,
-		                 addGround:true,
-		                 shadows:true },
                      { name : "Box", url : "../../sampleModels/Box/%s/Box.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         },
-                     { name : "Box - Textured",
-                        url : "../../sampleModels/BoxTextured/%s/BoxTextured.gltf",
                          cameraPos: new THREE.Vector3(0, 3, 5),
                          addLights:true,
                          },
@@ -415,50 +391,7 @@
 		                 cameraPos: new THREE.Vector3(0, 3, 10),
                          addLights:false,
 		                 cameras: {"Camera02" : "", "Camera05" : "", "Camera11" : "", "Camera15" : ""}},
-                     { name : "Cesium Man", url : "../../sampleModels/CesiumMan/%s/CesiumMan.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 10),
-                         objectRotation: new THREE.Euler(0, 0, 0),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true },
-                     { name : "Cesium Milk Truck",
-                            url : "../../sampleModels/CesiumMilkTruck/%s/CesiumMilkTruck.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 10),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true },
-                     { name : "Rigged Figure", url : "../../sampleModels/RiggedFigure/%s/RiggedFigure.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 10),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true },
-                     { name : "Rigged Simple", url : "../../sampleModels/RiggedSimple/%s/RiggedSimple.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 10),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true },
-		             { name : "Monster", url : "../../sampleModels/Monster/%s/Monster.gltf",
-			                 cameraPos: new THREE.Vector3(0, 10, 50),
-			                 objectPosition: new THREE.Vector3(2, 6, 0),
-                             objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
-			                 objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
-			                 animationTime: 3,
-			                 addLights:true,
-			                 shadows:true,
-			                 addGround:true },
-                     { name : "Duck - data:", url : "../../sampleModels/Duck/%s/Duck.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true,
-                         dataURIs: true},
                      { name : "Box - data:", url : "../../sampleModels/Box/%s/Box.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         dataURIs: true
-                         },
-                     { name : "Box - Textured - data:",
-                        url : "../../sampleModels/BoxTextured/%s/BoxTextured.gltf",
                          cameraPos: new THREE.Vector3(0, 3, 5),
                          addLights:true,
                          dataURIs: true
@@ -468,84 +401,6 @@
                          addLights:false,
                          cameras: {"Camera02" : "", "Camera05" : "", "Camera11" : "", "Camera15" : ""},
                          dataURIs: true},
-                     { name : "Cesium Man - data:", url : "../../sampleModels/CesiumMan/%s/CesiumMan.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 10),
-                         objectRotation: new THREE.Euler(0, 0, 0),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true,
-                         dataURIs: true },
-                     { name : "Cesium Milk Truck - data:",
-                            url : "../../sampleModels/CesiumMilkTruck/%s/CesiumMilkTruck.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 10),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true,
-                         dataURIs: true},
-                     { name : "Rigged Figure - data:", url : "../../sampleModels/RiggedFigure/%s/RiggedFigure.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 10),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true,
-                         dataURIs: true},
-                     { name : "Rigged Simple - data:", url : "../../sampleModels/RiggedSimple/%s/RiggedSimple.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 10),
-                         addLights:true,
-                         addGround:true,
-                         shadows:true,
-                         dataURIs: true },
-                     { name : "Monster - data:", url : "../../sampleModels/Monster/%s/Monster.gltf",
-                             cameraPos: new THREE.Vector3(0, 10, 50),
-                             objectPosition: new THREE.Vector3(2, 6, 0),
-                             objectScale: new THREE.Vector3(0.01, 0.01, 0.01),
-                             objectRotation: new THREE.Euler(0, - 3 * Math.PI / 4, 0),
-                             animationTime: 3,
-                             addLights:true,
-                             shadows:true,
-                             addGround:true,
-                             dataURIs: true },
-
-                    /*
-                    // Comment/uncomment these for additional tests...
-
-                     { name : "BrainSteam", url : "../../sampleModels/brainsteam/%s/brainsteam.gltf",
-                             cameraPos: new THREE.Vector3(0, 1, 10),
-                             addLights:true,
-                             shadows:true,
-                             addGround:true },
-                     { name : "Box - Animated", url : "../../sampleModels/boxAnimated/%s/glTF.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         },
-                     { name : "2 Cylinder Engine", url : "../../sampleModels/2_cylinder_engine/%s/2_cylinder_engine.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         },
-                     { name : "Box - Semantics", url : "../../sampleModels/boxSemantics/%s/boxSemantics.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         },
-                     { name : "Box - No Indices", url : "../../sampleModels/boxWithoutIndices/%s/boxWithoutIndices.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         },
-                     { name : "Buggy",
-                        url : "../../sampleModels/buggy/%s/buggy.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         },
-                     { name : "Gearbox Assembly",
-                        url : "../../sampleModels/gearbox_assy/%s/gearbox_assy.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         },
-                     { name : "Reciprocating Saw",
-                        url : "../../sampleModels/Reciprocating_Saw/%s/Reciprocating_Saw.gltf",
-                         cameraPos: new THREE.Vector3(0, 3, 5),
-                         addLights:true,
-                         },
-		            */
-
      			];
 
 			function buildSceneList()
