@@ -129,8 +129,8 @@
                 </div>
             </div>
         </div>
-        <script src="libs/three.js.r73/three.js"></script>
-        <script src="libs/three.js.r73/Controls/OrbitControls.js"></script>
+        <script src="libs/three.js.r77/three.js"></script>
+        <script src="libs/three.js.r77/controls/OrbitControls.js"></script>
         <script src="glTF-parser.js"></script>
         <script src="glTFLoader.js"></script>
         <script src="glTFLoaderUtils.js"></script>
@@ -383,20 +383,20 @@
 
 			var sceneList =
 				[
-                     { name : "Box", url : "../../sampleModels/Box/%s/Box.gltf",
+                     { name : "Box", url : "data/Box/%s/Box.gltf",
                          cameraPos: new THREE.Vector3(0, 3, 5),
                          addLights:true,
                          },
-	                 { name : "Virtual City", url : "../../sampleModels/VC/%s/VC.gltf",
+	                 { name : "Virtual City", url : "data/VC/%s/VC.gltf",
 		                 cameraPos: new THREE.Vector3(0, 3, 10),
                          addLights:false,
 		                 cameras: {"Camera02" : "", "Camera05" : "", "Camera11" : "", "Camera15" : ""}},
-                     { name : "Box - data:", url : "../../sampleModels/Box/%s/Box.gltf",
+                     { name : "Box - data:", url : "data/Box/%s/Box.gltf",
                          cameraPos: new THREE.Vector3(0, 3, 5),
                          addLights:true,
                          dataURIs: true
                          },
-                     { name : "Virtual City - data:", url : "../../sampleModels/VC/%s/VC.gltf",
+                     { name : "Virtual City - data:", url : "data/VC/%s/VC.gltf",
                          cameraPos: new THREE.Vector3(0, 3, 10),
                          addLights:false,
                          cameras: {"Camera02" : "", "Camera05" : "", "Camera11" : "", "Camera15" : ""},
