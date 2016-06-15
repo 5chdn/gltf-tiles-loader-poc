@@ -35,7 +35,8 @@
         "version": "1.0",
         "extras": {
             "description": "minimal gltf, single triangle",
-            "base64encoder": "https://jsfiddle.net/opkxy0xb/"
+            "base64encoder": "https://jsfiddle.net/opkxy0xb/",
+            "stackexchange": "http://computergraphics.stackexchange.com/q/1934/361"
         }
     },
     "bufferViews": {
@@ -122,7 +123,6 @@
             "vertexShader": "vertexShader0"
         }
     },
-    "scene": "scene0",
     "scenes": {
         "scene0": {
             "nodes": [
