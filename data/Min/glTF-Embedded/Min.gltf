@@ -1,0 +1,179 @@
+{
+    "accessors": {
+        "accessor0": {
+            "bufferView": "bufferView0",
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 3,
+            "type": "SCALAR"
+        },
+        "accessor1": {
+            "bufferView": "bufferView1",
+            "byteOffset": 0,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 3,
+            "max": [
+                0.5,
+                0.5,
+                0.5
+            ],
+            "min": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "type": "VEC3"
+        }
+    },
+    "asset": {
+        "generator": "5chdn",
+        "profile": {
+            "api": "WebGL",
+            "version": "1.0.3"
+        },
+        "version": "1.0",
+        "extras": {
+            "description": "minimal gltf, single triangle",
+            "base64encoder": "https://jsfiddle.net/opkxy0xb/"
+        }
+    },
+    "bufferViews": {
+        "bufferView0": {
+            "buffer": "Min",
+            "byteLength": 6,
+            "byteOffset": 0,
+            "target": 34963
+        },
+        "bufferView1": {
+            "buffer": "Min",
+            "byteLength": 36,
+            "byteOffset": 6,
+            "target": 34962
+        }
+    },
+    "buffers": {
+        "Min": {
+            "bytelength": 42,
+            "type": "arraybuffer",
+            "uri": "data:application/octet-stream;base64,AAABAAIArK34PnZxmz29UhY9T6+UPXuD7z64QAI9UWuaPW/wBT3ysPA+"
+        }
+    },
+    "materials": {
+        "effect0": {
+            "values": {
+                "emission": [
+                    0.8,
+                    0.8,
+                    0.0,
+                    1.0
+                ]
+            },
+            "technique": "technique0"
+        }
+    },
+    "meshes": {
+        "mesh0": {
+            "name": "Triangle",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": "accessor1"
+                    },
+                    "indices": "accessor0",
+                    "material": "effect0",
+                    "mode": 4
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "node0": {
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "meshes": [
+                "mesh0"
+            ],
+            "name": "TriangleMesh"
+        }
+    },
+    "programs": {
+        "program0": {
+            "attributes": [
+                "a_position"
+            ],
+            "fragmentShader": "fragmentShader0",
+            "vertexShader": "vertexShader0"
+        }
+    },
+    "scene": "scene0",
+    "scenes": {
+        "scene0": {
+            "nodes": [
+                "node0"
+            ]
+        }
+    },
+    "shaders": {
+        "vertexShader0": {
+            "type": 35633,
+            "uri": "data:text/plain;base64,cHJlY2lzaW9uIGhpZ2hwIGZsb2F0Ow0KdW5pZm9ybSBtYXQ0IHVfbW9kZWxWaWV3TWF0cml4Ow0KdW5pZm9ybSBtYXQ0IHVfcHJvamVjdGlvbk1hdHJpeDsNCmF0dHJpYnV0ZSB2ZWMzIGFfcG9zaXRpb247DQp2b2lkIG1haW4odm9pZCkNCnsNCmdsX1Bvc2l0aW9uID0gdV9wcm9qZWN0aW9uTWF0cml4ICogdV9tb2RlbFZpZXdNYXRyaXggKiB2ZWM0KGFfcG9zaXRpb24sMS4wKTsNCn0="
+        },
+        "fragmentShader0": {
+            "type": 35632,
+            "uri": "data:text/plain;base64,cHJlY2lzaW9uIGhpZ2hwIGZsb2F0Ow0KdW5pZm9ybSB2ZWM0IHVfZW1pc3Npb247DQp2b2lkIG1haW4odm9pZCkNCnsNCmdsX0ZyYWdDb2xvciA9IHVfZW1pc3Npb247DQp9"
+        }
+    },
+    "techniques": {
+        "technique0": {
+            "attributes": {
+                "a_position": "position"
+            },
+            "parameters": {
+                "modelViewMatrix": {
+                    "semantic": "MODELVIEW",
+                    "type": 35676
+                },
+                "projectionMatrix": {
+                    "semantic": "PROJECTION",
+                    "type": 35676
+                },
+                "emission": {
+                    "type": 35666
+                },
+                "position": {
+                    "semantic": "POSITION",
+                    "type": 35665
+                }
+            },
+            "program": "program0",
+            "states": {
+                "enable": [
+                    2884,
+                    2929
+                ]
+            },
+            "uniforms": {
+                "u_modelViewMatrix": "modelViewMatrix",
+                "u_projectionMatrix": "projectionMatrix",
+                "u_emission": "emission"
+            }
+        }
+    }
+}
